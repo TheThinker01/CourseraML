@@ -21,14 +21,17 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
-
-
-
-
-
-
-
-
+X = [ones(m,1) X];
+% now for each example we make the prediction
+for i=1:m
+  x = X(i,:)';
+  z2 = Theta1*x;
+  a2 = sigmoid(z2);
+  a2 = [1;a2];
+  z3 = Theta2*a2;
+  a3 = sigmoid(z3);
+ [scrap p(i,1)] = max(a3);
+end
 % =========================================================================
 
 

@@ -6,7 +6,7 @@ function [h, display_array] = displayData(X, example_width)
 
 % Set example_width automatically if not passed in
 if ~exist('example_width', 'var') || isempty(example_width) 
-	example_width = round(sqrt(size(X, 2)));
+	example_width = round(sqrt(size(X, 2))); %20 acc to example
 end
 
 % Gray Image
@@ -14,16 +14,18 @@ colormap(gray);
 
 % Compute rows, cols
 [m n] = size(X);
-example_height = (n / example_width);
+example_height = (n / example_width); % 20 
 
 % Compute number of items to display
-display_rows = floor(sqrt(m));
-display_cols = ceil(m / display_rows);
+% Keep in mind - total number  of items displayed  = display_row*display_cols
+display_rows = floor(sqrt(m)); %10 here
+display_cols = ceil(m / display_rows); % 10 here
 
 % Between images padding
 pad = 1;
 
 % Setup blank display
+% dimensions - 211 * 211 of -1
 display_array = - ones(pad + display_rows * (example_height + pad), ...
                        pad + display_cols * (example_width + pad));
 
