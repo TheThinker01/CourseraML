@@ -33,7 +33,7 @@ X = [ones(m, 1) X];
 %% X is a m x (n+1) matrix and all_theta is a num_labels x (n+1) matrix 
 %% So X*all_theta' will give us the m x num_labels matrix, for each row we will 
 %% use the max
-[scrap p] = max(X*(all_theta'),[],2);
+[scrap p] = max(sigmoid(X*(all_theta')),[],2);
 
 
 
